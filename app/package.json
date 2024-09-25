@@ -1,0 +1,9 @@
+{
+    "name": "bubblebot3",
+    "version": "1.0.0",
+    "description": "A general use discord bot",
+    "main": "bubblebot.js",
+    "dependencies": {
+        "discord.js": "^14.16.2"
+    }
+}
