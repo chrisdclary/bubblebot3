@@ -9,10 +9,12 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.commands = new Collection();
 
 const cmdFolderPath = path.join(__dirname, 'cmd');
-const commandFiles = fs.readdirSync(cmdFolderPath).filter(file => file.endsWith('.js'));
+const commandFolders = fs.readdirSync(cmdFolderPath)
 
-for (const file of commandFiles) {
-	const filePath = path.join(cmdFolderPath, file);
+for (const folder of commandFolders) {
+	const commandPath = path.join(cmdFolderPath, folder);
+	const commandFile = fs.readdirSync(commandPath).filter(file => file = (`${folder}.js`))[0];
+	const filePath = path.join(commandPath, commandFile);
 	const command = require(filePath);
 	// Set a new item in the Collection with the key as the command name and the value as the exported module
 	if ('data' in command && 'execute' in command) {
