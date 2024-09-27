@@ -1,3 +1,4 @@
 services:
   bubblebot3:
     build: .
+    image: bubblebot3
